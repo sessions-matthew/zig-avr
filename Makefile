@@ -13,7 +13,7 @@ build-%:
 	   -target avr-freestanding-none \
 		 -mcpu=attiny85 $(target).zig
 
-	@$(avrbin)/avr-gcc $(outdir)/$(target).o \
+	@$(avrbin)/avr-gcc -Os $(outdir)/$(target).o \
 			-mmcu=attiny85 -o $(outdir)/$(target).elf
 
 	@$(avrbin)/avr-objcopy -j .text -j data \

@@ -1,12 +1,11 @@
 const attiny85 = @import("attiny85.zig").attiny85;
+const avr = @import("avr.zig").avr;
+
 export fn main() void {
-    attiny85.DDRB.* = 1 << 3;
+    avr.enablePin(attiny85, attiny85.PB3, avr.pinDir.OUTPUT);
+
     while (true) {
-        attiny85.PORTB.* ^= 1 << 3;
-        var i: i32 = 0;
-        while (i < 32000) {
-            i += 1;
-        }
-        i = 0;
+        avr.togglePin(attiny85, attiny85.PB3);
+        avr.delay(10000);
     }
 }
