@@ -64,10 +64,12 @@ pub const attiny85 = extern struct {
 
     pub const Pin = packed struct { port: *u8 = PORTB, pin: *u8 = PINB, ddr: *u8 = DDRB, n: u8 };
 
+    pub const PB0 = Pin{ .n = 0 };
     pub const PB1 = Pin{ .n = 1 };
     pub const PB2 = Pin{ .n = 2 };
     pub const PB3 = Pin{ .n = 3 };
     pub const PB4 = Pin{ .n = 4 };
+    pub const PB5 = Pin{ .n = 4 };
 };
 
 comptime {

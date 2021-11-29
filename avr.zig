@@ -7,7 +7,7 @@ pub const avr = extern struct {
         if (dir == 1) {
             pin.ddr.* |= 1 << pin.n;
         } else {
-            pin.ddr.* |= 1 << pin.n;
+            pin.ddr.* &= ~@intCast(u8, 1 << pin.n);
         }
     }
     pub fn togglePin(comptime T: type, comptime pin: T.Pin) void {
