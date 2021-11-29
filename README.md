@@ -1,5 +1,8 @@
-# Zig boilerplate project for the ATtiny85
+# Zig boilerplate project for AVR
 Adjust the makefile to fit your setup
+
+## Progress
+- attiny85 registers filled out
 
 zig: 0.9.0-dev.1791+c46a91da1
 
