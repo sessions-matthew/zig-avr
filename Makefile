@@ -9,6 +9,7 @@ build: build-$(target)
 
 build-%:
 	@zig build-obj -femit-bin=$(outdir)/$(target).o \
+		 -Dmcu=$(mcu) \
 	   -Drelease-small --strip \
 		 --cache-dir /tmp/zig-cache \
 	   -target avr-freestanding-none \
@@ -37,4 +38,3 @@ flash-%: build-$(target)
 			-U flash:w:$(outdir)/$(target).hex:i \
 			-c arduino -P/dev/ttyUSB0 \
 			-C $(avrdir)/etc/avrdude.conf
-#			-c avrisp -b 19200 \

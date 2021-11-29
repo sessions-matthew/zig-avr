@@ -1,12 +1,11 @@
-const attiny85 = @import("attiny85.zig").attiny85;
-const atmega328p = @import("atmega328p.zig").atmega328p;
-const avr = @import("avr.zig").avr;
+const board = @import("boards/attiny85.zig").board;
+const avr = @import("avr.zig").Avr(board);
 
 export fn main() void {
-    avr.enablePin(atmega328p, atmega328p.PB5, avr.pinDir.OUTPUT);
+    avr.enablePin(board.PB4, avr.pinDir.OUTPUT);
 
     while (true) {
-        avr.togglePin(atmega328p, atmega328p.PB5);
+        avr.togglePin(board.PB4);
         avr.delay(30000);
     }
 }

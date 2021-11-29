@@ -1,4 +1,4 @@
-pub const attiny85 = extern struct {
+pub const board = extern struct {
     fn SFR(comptime addr: u8) u8 {
         return 0x20 + addr;
     }
@@ -73,5 +73,5 @@ pub const attiny85 = extern struct {
 };
 
 comptime {
-    @export(attiny85, .{ .name = "attiny85", .linkage = .Strong });
+    @export(board, .{ .name = "atmega328p", .linkage = .Strong });
 }

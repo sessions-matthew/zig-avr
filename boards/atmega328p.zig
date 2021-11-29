@@ -1,4 +1,4 @@
-pub const atmega328p = extern struct {
+pub const board = extern struct {
     fn SFR(comptime addr: u8) u8 {
         return 0x20 + addr;
     }
@@ -22,5 +22,5 @@ pub const atmega328p = extern struct {
     pub const PB5 = Pin{ .n = 5 };
 };
 comptime {
-    @export(atmega328p, .{ .name = "atmega328p", .linkage = .Strong });
+    @export(board, .{ .name = "atmega328p", .linkage = .Strong });
 }
