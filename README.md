@@ -2,7 +2,12 @@
 Adjust the makefile to fit your setup
 
 ## Progress
-- attiny85 registers filled out
+- ATtiny85 registers filled out
+
+### Tested on
+- ATtiny85
+- Arduino Nano
+- Pro Micro 
 
 ## Versions
 zig: 0.9.0-dev.1791+c46a91da1
