@@ -33,6 +33,16 @@ flash-attiny85: build-$(target)
 			-U flash:w:$(outdir)/$(target).hex:i \
 			-C $(avrdir)/etc/avrdude.conf
 
+# this one requires a rst to gnd "button press"
+# - will mess with Arduino IDE compatibility
+# - will boot within 10 seconds
+# - red leds will start powered off after re-connecting
+flash-atmega32u4: build-$(target)
+	@$(avrbin)/avrdude -p$(mcu) \
+			-cavr109 -P/dev/ttyACM0 -b57600 \
+			-U flash:w:$(outdir)/$(target).hex:i \
+			-C $(avrdir)/etc/avrdude.conf
+
 flash-%: build-$(target)
 	@$(avrbin)/avrdude -p $(mcu) -Pusb \
 			-U flash:w:$(outdir)/$(target).hex:i \

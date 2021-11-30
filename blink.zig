@@ -1,4 +1,4 @@
-const board = @import("boards/attiny85.zig").board;
+const board = @import("boards/attiny85.zig");
 const avr = @import("avr.zig").Avr(board);
 
 export fn main() void {
