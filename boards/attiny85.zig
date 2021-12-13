@@ -2,7 +2,7 @@ fn SFR(comptime addr: u8) u8 {
     return 0x20 + addr;
 }
 fn IO(comptime addr: u8) *u8 {
-    return @intToPtr(*u8, addr);
+    return @intToPtr(*u8, SFR(addr));
 }
 pub const SREG = IO(0x3F);
 pub const SPH = IO(0x3E);
